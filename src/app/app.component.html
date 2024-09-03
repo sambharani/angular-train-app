@@ -1,0 +1,18 @@
+<div class="container">
+<h1>Train Seat Reservation System</h1>
+<p>{{ message }}</p>
+
+<div *ngFor="let row of seats" class="row">
+  <button
+    *ngFor="let seat of row"
+    [ngClass]="{'booked': bookedSeats.includes(seat)}">
+    {{ seat }}
+  </button>
+</div>
+
+<div class="booking">
+  <label for="numSeats">Number of seats to book:</label>
+  <input type="number" id="numSeats" min="1" max="7" #numSeats>
+  <button (click)="bookSeats(numSeats.value)">Book Seats</button>
+</div>
+</div>
